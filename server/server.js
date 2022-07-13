@@ -80,6 +80,7 @@ app.prepare().then(async () => {
   };
 
   router.get("/", async (ctx) => {
+    
     const shop = ctx.query.shop;
 
     ACTIVE_SHOPIFY_SHOPS = await redisClient.getJSON("active_shops");
@@ -122,6 +123,7 @@ app.prepare().then(async () => {
 
   server.use(router.routes());
   server.listen(port, () => {
+
     console.log(`> Ready on http://localhost:${port}`);
   });
 });
